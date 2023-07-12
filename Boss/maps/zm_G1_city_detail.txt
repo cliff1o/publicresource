@@ -1,0 +1,3 @@
+ko_road1             detail/dt_smooth1                  6.0    3.0
+ko_road2             detail/dt_smooth1                  6.0    3.0
+ko_road3             detail/dt_smooth1                  6.0    6.0

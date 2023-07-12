@@ -1,0 +1,21 @@
+zm_pollution - version 1.0
+
+Wpoly            : 400-600   (max: 1000)
+Epoly            : 3000-6000 (max: 10000)
+Models           : my
+Sounds           : my
+Env              : my
+
+Map By DimeX
+(11.12.2009)
+
+Title            : zm_pollution
+Version          : Final
+Author           : DimeX
+E-mail           : dimexby@mail.ru
+ICQ              : 599109582
+Description      : The old city, dirty streets, chaos - I all it has embodied in my new map for zombie mod. Take fun!
+Other maps       : X-Zm_maps and other
+Notes            : This is my last map!
+
+(Press FIRE to continue)

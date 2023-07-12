@@ -1,0 +1,14 @@
+// overview description file for cs_citymall.bsp 
+
+global 
+{
+	ZOOM	1.60
+	ORIGIN	-273.56  -284.38 -12.00
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/cs_citymall.tga"
+	HEIGHT	1329.00 
+}

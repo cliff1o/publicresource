@@ -1,0 +1,12 @@
+gfx/env/pasmurnoup.tga
+gfx/env/pasmurnodn.tga
+gfx/env/pasmurnolf.tga
+gfx/env/pasmurnort.tga
+gfx/env/pasmurnoft.tga
+gfx/env/pasmurnobk.tga
+maps/de_sash.res
+maps/de_sash.txt
+models/jd/tree_gshaded.mdl
+sound/jd/buzzer_indust_zil.wav
+sound/jd/wind_litegust.wav
+sound/jd/dist_traffic1.wav
