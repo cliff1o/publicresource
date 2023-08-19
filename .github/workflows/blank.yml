@@ -23,5 +23,7 @@ jobs:
       run: |
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
-        git remote add gitcode https://${{ secrets.GITCODE_ID }}:${{ secrets.GITCODE_PW }}@gitcode.net/2301_79002849/cdn.git
+        GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITCODE_USERNAME }}" | jq -sRr @uri)
+        GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_PASSWORD }}" | jq -sRr @uri)
+        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/cdn.git
         git push gitcode HEAD:d0
