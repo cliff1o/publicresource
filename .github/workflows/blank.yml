@@ -25,5 +25,6 @@ jobs:
         git config --global user.email "action@github.com"
         GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITCODE_USERNAME }}" | jq -sRr @uri)
         GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_PASSWORD }}" | jq -sRr @uri)
-        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/cdn.git
-        git push gitcode HEAD:d0
+        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/cs16Resource.git
+        git pull gitcode main --allow-unrelated-histories
+        git push gitcode HEAD:main
