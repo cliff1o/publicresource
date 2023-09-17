@@ -27,6 +27,7 @@ jobs:
         GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_PASSWORD }}" | jq -sRr @uri)
         git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/cs16Resource.git
         git fetch gitcode main
+        git reset --hard gitcode/main
         git rebase gitcode/main --skip
         git push -f gitcode HEAD:main
         
