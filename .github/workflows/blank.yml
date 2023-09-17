@@ -29,3 +29,22 @@ jobs:
         git fetch gitcode main
         git rebase gitcode/main
         git push gitcode HEAD:main
+        
+    - name: Record file information
+      run: |
+        git diff --name-only HEAD^ HEAD > changed_files.txt
+        while IFS= read -r file
+        do
+          if [ -f "$file" ]; then
+            echo "File path: $file"
+            echo "File name: $(basename $file)"
+            echo "Push time: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          fi
+        done < changed_files.txt
+        echo "Recorded information for files changed in the latest commit."
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: changed-files
+        path: changed_files.txt
