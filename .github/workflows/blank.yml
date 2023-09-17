@@ -30,10 +30,10 @@ jobs:
         git rebase --strategy-option ours gitcode/main
         git push gitcode HEAD:main
         
-    - name: List all files and folders
+    - name: List all non-JSON files and folders
       run: |
         mkdir file_info
-        find . -type f -exec sh -c 'echo "{ \"path\": \"{}\", \"name\": \"$(basename {})\", \"time\": \"$(git log -1 --format=%aI {} | xargs)\" }" > file_info/$(basename {}).json' \;
+        find . -type f -not -name "*.json" -exec sh -c 'echo "{ \"path\": \"{}\", \"name\": \"$(basename {})\", \"time\": \"$(git log -1 --format=%aI {} | xargs)\" }" > file_info/$(basename {}).json' \;
     - name: Combine JSON files into one
       run: |
         echo '[' > all_files.json
