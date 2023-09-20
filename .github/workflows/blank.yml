@@ -33,7 +33,7 @@ jobs:
     - name: List all non-JSON files and folders
       run: |
         mkdir file_info
-        find . -type f -not -name "*.json" -exec sh -c 'echo "{ \"path\": \"{}\", \"name\": \"$(basename {})\", \"time\": \"$(git log -1 --format=%aI {} | xargs)\" }" > file_info/$(basename {}).json' \;
+        find . -type f -not -name "*.json" -exec sh -c 'echo "{ \"path\": \"{}\", \"name\": \"$(basename {})\", \"server_type\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"time\": \"$(git log -1 --format=%aI {} | xargs)\" }" > file_info/$(basename {}).json' \;
     - name: Combine JSON files into one
       run: |
         echo '[' > all_files.json
