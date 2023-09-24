@@ -33,11 +33,12 @@ jobs:
     - name: List all non-JSON files and folders
       run: |
         mkdir file_info
-        find . -type f -not -name "*.json" -exec sh -c 'echo "{ \"path\": \"{}\", \"name\": \"$(basename {})\", \"servertype\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"time\": \"$(git log -1 --format=%aI {} | xargs)\" }," > file_info/$(basename {}).json' \;
+        find . -type f -not -name "*.json" -exec sh -c 'echo "{ \"path\": \"{}\", \"name\": \"$(basename {})\", \"servertype\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"time\": \"$(git log -1 --format=%aI {} | xargs)\" }" > file_info/$(basename {}).json' \;
     - name: Combine JSON files into one
       run: |
         echo '[' > all_files.json
-        find file_info -name "*.json" -exec cat {} \; | jq -c . >> all_files.json
+        find file_info -name "*.json" -exec cat {} \; | sed 's/$/,/' >> all_files.json
+        sed -i '$ s/,$//' all_files.json
         echo ']' >> all_files.json
     - name: List out this time change
       run: |
