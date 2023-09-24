@@ -33,7 +33,7 @@ jobs:
     - name: List all non-JSON files and folders
       run: |
         mkdir file_info
-        find . -type f -not -name "*.json" -exec sh -c 'echo "{ \"path\": \"{}\", \"name\": \"$(basename {})\", \"server_type\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"time\": \"$(git log -1 --format=%aI {} | xargs)\" }" > file_info/$(basename {}).json' \;
+        find . -type f -not -name "*.json" -exec sh -c 'echo "{ \"path\": \"{}\", \"name\": \"$(basename {})\", \"servertype\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"time\": \"$(git log -1 --format=%aI {} | xargs)\" }," > file_info/$(basename {}).json' \;
     - name: Combine JSON files into one
       run: |
         echo '[' > all_files.json
@@ -42,19 +42,18 @@ jobs:
     - name: List out this time change
       run: |
         echo '[' > edit.json
-        git diff --name-status HEAD~1 | while read line ; do
-          status=$(echo $line | awk '{print $1}')
-          file=$(echo $line | awk '{print $2}')
-          if [ "$status" = "A" ]; then
-            change="add"
-          elif [ "$status" = "D" ]; then
-            change="remove"
-          elif [ "$status" = "M" ]; then
-            change="edit"
-          else
-            change="unknown"
-          fi
-          if [ ! -name "*.json" ]; then
+        git ls-files | while read file ; do
+          if [[ $file != *.json ]]; then
+            status=$(git diff --name-status HEAD~1 $file | awk '{print $1}')
+            if [ "$status" = "A" ]; then
+              change="add"
+            elif [ "$status" = "D" ]; then
+              change="remove"
+            elif [ "$status" = "M" ]; then
+              change="edit"
+            else
+              change="unknown"
+            fi
             echo "{ \"path\": \"$file\", \"name\": \"$(basename $file)\", \"server_type\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"type\": \"$change\", \"time\": \"$(git log -1 --format=%aI $file | xargs)\" }," >> edit.json
           fi
         done
