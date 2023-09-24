@@ -53,7 +53,7 @@ jobs:
             elif [ "$status" = "M" ]; then
               change="edit"
             else
-              change="unknown"
+              continue
             fi
             echo "{ \"path\": \"$file\", \"name\": \"$(basename $file)\", \"server_type\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"type\": \"$change\", \"time\": \"$(git log -1 --format=%aI $file | xargs)\" }," >> edit.json
           fi
@@ -68,3 +68,4 @@ jobs:
         path: |
           all_files.json
           edit.json
+
