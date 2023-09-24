@@ -44,7 +44,7 @@ jobs:
       run: |
         echo '[' > edit.json
         git ls-files | while read file ; do
-          if [[ $file != *.json ]]; then
+          if [[ $file == *.mdl || $file == *.wav || $file == *.mp3 || $file == *.bsp || $file == *.wad || $file == *.nav || $file == *.res || $file == *.txt ]]; then
             status=$(git diff --name-status HEAD~1 $file | awk '{print $1}')
             if [ "$status" = "A" ]; then
               change="add"
