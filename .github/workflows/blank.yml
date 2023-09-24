@@ -68,4 +68,21 @@ jobs:
         path: |
           all_files.json
           edit.json
+          
+  use-edit-json:
+    needs: build
+    runs-on: ubuntu-latest
 
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: all-files
+
+    - name: Do something with edit.json
+      run: |
+        # 在這裡添加你想用 edit.json 做的事情
+        cat edit.json
