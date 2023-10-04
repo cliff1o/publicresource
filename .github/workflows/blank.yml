@@ -57,7 +57,7 @@ jobs:
             else
               continue
             fi
-            echo "{ \"path\": \"$(printf "%s\n" $file | cut -c 2-)\", \"name\": \"$(basename $file)\", \"server_type\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"type\": \"$change\", \"time\": \"$(git log -1 --format=%aI $file | xargs)\" }," >> edit.json
+            echo "{ \"path\": \"$file\", \"name\": \"$(basename $file)\", \"server_type\": 1, \"compressed\": \"normal\", \"tunnel\": \"git\", \"type\": \"$change\", \"time\": \"$(git log -1 --format=%aI $file | xargs)\" }," >> edit.json
           fi
         done
         sed -i '$s/,$//' edit.json
