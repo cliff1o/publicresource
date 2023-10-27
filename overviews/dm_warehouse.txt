@@ -1,0 +1,14 @@
+// overview description file for dm_warehouse.bsp
+
+global 
+{
+	ZOOM	3.29
+	ORIGIN	364.06	-1.59	-512.00
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/dm_warehouse.bmp"
+	HEIGHT -1025.00
+}

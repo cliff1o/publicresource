@@ -1,0 +1,28 @@
+@PointClass size(-20 -20 -20, 20 20 20) color(0 255 0) = soccerjam_ballspawn : "Ball Spawn" []
+
+@PointClass size(-20 -20 -20, 20 20 20) color(255 0 0) = soccerjam_teamball : "Ball at Goal" 
+[
+	team(choices) : "team" : 1 =
+	[
+		1: "Terrorist"
+		2: "CT"
+	]
+]
+
+@PointClass base(Angles) size(-50 -50 -100, 50 50 100) color(20 255 20) = soccerjam_mascot : "Soccer Mascot" 
+[
+	team(choices) : "team" : 1 =
+	[
+		1: "Terrorist"
+		2: "CT"
+	]
+]
+
+@SolidClass base(RenderFields) = soccerjam_goalnet : "Goal Net" 
+[
+	team(choices) : "team" : 1 = 
+	[
+		1: "Terrorist"
+		2: "CT"
+	]
+]

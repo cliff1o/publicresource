@@ -1,0 +1,17 @@
+gfx/env/fy_desertbk.tga
+gfx/env/fy_desertdn.tga
+gfx/env/fy_desertft.tga
+gfx/env/fy_desertlf.tga
+gfx/env/fy_desertrt.tga
+gfx/env/fy_desertup.tga
+maps/fy_desert.res
+maps/fy_desert.txt
+models/fy_desert/bush1.mdl
+models/fy_desert/bush2.mdl
+models/fy_desert/car.mdl
+models/fy_desert/grass.mdl
+models/fy_desert/shade.mdl
+models/fy_desert/tree.mdl
+overviews/fy_desert.bmp
+overviews/fy_desert.txt
+sound/fy_desert/wind.wav

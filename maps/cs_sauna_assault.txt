@@ -1,0 +1,17 @@
+Sauna Assault - Hostage Rescue
+by Freimaurer
+
+based on
+cs_assault by CryptR
+cs_sauna by klaymen
+
+An old abandoned warehouse was converted into a spa resort.
+Unfortunately hostages were hold there by evil terrorists.
+
+Counter-Terrorists: 
+The hostages are swetting in the sauna, fetch them!
+
+Terrorists: 
+Camp into the building and kick the counters ass!
+
+(Press fire to continue)

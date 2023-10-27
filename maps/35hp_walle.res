@@ -1,0 +1,13 @@
+﻿gfx/env/greenbk.tga
+gfx/env/greendn.tga
+gfx/env/greenft.tga
+gfx/env/greenlf.tga
+gfx/env/greenrt.tga
+gfx/env/greenup.tga
+maps/35hp_walle.res
+maps/35hp_walle.txt
+maps/35hp_walle.bsp
+ambience/Birds9.wav
+ambience/lv_neon.wav
+ambience/waterrun.wav
+sound/snowfacility/wind03.wav
