@@ -1,0 +1,11 @@
+zm_2trains_v2
+
+Map by Veles
+Special thanks to AndrewZ
+
+Visit www.deadstrike.ru
+
+People should resist infection - kill all zombies, or hold on some minutes.
+Zombies should infect, kill all people.
+
+(Press FIRE to continue)
