@@ -1,0 +1,16 @@
+// Detail texture map file for zm_meat_industry_b2 level
+// [texture name]	[detail texture name]		[hscale]	[vscale]
+
+Lxsand1		detail/dt_ground3	        5.0		5.0
+EgGrnd2		detail/stone3		        5.0		5.0
+EgCollonedw	detail/dt_stone4		5.0		5.0
+EgWall6		detail/dt_stone4		5.0		5.0
+EgRocks2	detail/dt_stone4		5.0		5.0
+EgGrnd		detail/stone3		        5.0		5.0
+EgHorusWall	detail/stone3		        5.0		5.0
+EgpWall12	detail/stone3		        5.0		5.0
+ELine1		detail/stone3		        5.0		5.0
+GrndSand	detail/dt_ground3	        5.0		5.0
+BumpWall7	detail/stone3		        5.0		5.0
+Anubis1	        detail/stone3		        5.0		5.0
+Egup            detail/stone3		        5.0		5.0
