@@ -23,6 +23,7 @@ jobs:
       run: |
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
+        git config --local http.postBuffer 157286400
         GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITEE_ID }}" | jq -sRr @uri)
         GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITEE_PW }}" | jq -sRr @uri)
         git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitee.com/clifflo/lgresource.git
