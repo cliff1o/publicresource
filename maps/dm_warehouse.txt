@@ -1,6 +1,0 @@
-﻿Warehouse -  (Team) Deathmatch
-Planning / Production: Nexon
-Graphics: Nexon
-
-- Eliminate all nearby/enemy players.
-- Player scoring the highest points will win the match.

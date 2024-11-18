@@ -1,4 +1,0 @@
-3
-weapon			640 lite_amx/640hud102_2		0	0	170	45
-weapon_s		640 lite_amx/640hud102_2		0	45	170	45
-ammo			640 lite_amx/640hud3_2		222	224	24	24

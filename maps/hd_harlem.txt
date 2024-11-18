@@ -1,6 +1,0 @@
-﻿Hidden City - Hidden Mode
-Map Production: Nexon
-Texture Creation: Nexon
-An unidentified masked assassin appears in a deserted slum village.
-Goal: Kill Hidden to reach the target point!!
-Tip: Hidden will expose his appearance over time, and will return to a transparent appearance if he kills an enemy.
