@@ -23,17 +23,12 @@ jobs:
       run: |
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
-        git config --global http.postBuffer 157286400
-        git config --global http.maxRequestBuffer 157286400
-        git config --global core.compression 9
-        git config --global http.lowSpeedLimit 0
-        git config --global http.lowSpeedTime 600
-        GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITEE_ID }}" | jq -sRr @uri)
-        GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITEE_PW }}" | jq -sRr @uri)
-        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitee.com/clifflo/lgresource.git
-        git fetch gitcode master
-        git rebase --strategy-option ours gitcode/master
-        git push gitcode HEAD:master --force-with-lease
+        GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITCODE_USERNAME }}" | jq -sRr @uri)
+        GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_PASSWORD }}" | jq -sRr @uri)
+        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/cs16Resource.git
+        git fetch gitcode d0
+        git rebase --strategy-option ours gitcode/d0
+        git push gitcode HEAD:d0
         
     - name: List all non-JSON files and folders
       run: |
