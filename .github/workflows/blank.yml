@@ -27,13 +27,8 @@ jobs:
         GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_PASSWORD }}" | jq -sRr @uri)
         git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/cs16Resource.git
         git fetch gitcode main
-        git branch -D tmp-clean || true
-        git checkout --orphan tmp-clean
-        git rm -rf .
-        echo "Repository cleaned" > README.md
-        git add README.md
-        git commit -m "Clean repository"
-        git push -f gitcode tmp-clean:main
+        git rebase --strategy-option ours gitcode/main
+        git push gitcode HEAD:main
         
     - name: List all non-JSON files and folders
       run: |
