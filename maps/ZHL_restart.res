@@ -1,1 +1,0 @@
-krtole_biohazard_reklama.wad
