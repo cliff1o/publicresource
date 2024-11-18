@@ -26,9 +26,9 @@ jobs:
         GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITEE_ID }}" | jq -sRr @uri)
         GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITEE_PW }}" | jq -sRr @uri)
         git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitee.com/clifflo/lgresource.git
-        git fetch gitcode main
-        git rebase --strategy-option ours gitcode/main
-        git push gitcode HEAD:main
+        git fetch gitcode master
+        git rebase --strategy-option ours gitcode/master
+        git push gitcode HEAD:master
         
     - name: List all non-JSON files and folders
       run: |
