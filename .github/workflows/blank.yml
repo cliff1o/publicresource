@@ -30,6 +30,14 @@ jobs:
         GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
       run: |
         git remote add gitcode https://oauth2:$GITCODE_TOKEN@gitcode.com/2301_79002849/lgres.git
+        git fetch gitcode d0
+        # Fetch changes from GitCode main branch
+        git fetch gitcode main
+
+        # Merge remote changes into local branch
+        git merge gitcode/main --strategy-option=theirs || true
+
+        # Push local changes to GitCode main branch
         git push gitcode main
         
     - name: List all non-JSON files and folders
