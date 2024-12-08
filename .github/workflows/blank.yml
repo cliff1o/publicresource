@@ -20,16 +20,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Push to GitCode
+    - name: Configure Git
       run: |
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
-        GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITCODE_USERNAME }}" | jq -sRr @uri)
-        GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_TOKEN }}" | jq -sRr @uri)
-        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/lgres.git
-        git fetch gitcode main
-        git rebase --strategy-option ours gitcode/main
-        git push gitcode HEAD:main
+
+    - name: Push to GitCode Main Branch
+      env:
+        GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+      run: |
+        git remote add gitcode https://oauth2:$GITCODE_TOKEN@gitcode.com/2301_79002849/lgres.git
+        git push gitcode main
         
     - name: List all non-JSON files and folders
       run: |
