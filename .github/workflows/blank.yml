@@ -14,6 +14,7 @@ on:
   workflow_dispatch:
 
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,11 +25,11 @@ jobs:
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
         GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITCODE_USERNAME }}" | jq -sRr @uri)
-        GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_PASSWORD }}" | jq -sRr @uri)
-        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/cs16Resource.git
-        git fetch gitcode d0
-        git rebase --strategy-option ours gitcode/d0
-        git push gitcode HEAD:d0
+        GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_TOKEN }}" | jq -sRr @uri)
+        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/lgres.git
+        git fetch gitcode main
+        git rebase --strategy-option ours gitcode/main
+        git push gitcode HEAD:main
         
     - name: List all non-JSON files and folders
       run: |
