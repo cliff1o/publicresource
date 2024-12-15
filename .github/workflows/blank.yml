@@ -6,12 +6,13 @@ name: Sync to GitCode
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "d1" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "d1" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
 
 
 jobs:
@@ -19,16 +20,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Push to GitCode
+    - name: Configure Git
       run: |
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
-        GITCODE_USERNAME_ENCODED=$(echo -n "${{ secrets.GITCODE_USERNAME }}" | jq -sRr @uri)
-        GITCODE_PASSWORD_ENCODED=$(echo -n "${{ secrets.GITCODE_PASSWORD }}" | jq -sRr @uri)
-        git remote add gitcode https://$GITCODE_USERNAME_ENCODED:$GITCODE_PASSWORD_ENCODED@gitcode.net/2301_79002849/cs16Resource.git
+
+    - name: Push to GitCode Main Branch
+      env:
+        GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+      run: |
+        git remote add gitcode https://oauth2:$GITCODE_TOKEN@gitcode.com/2301_79002849/lgres.git
         git fetch gitcode d0
-        git rebase --strategy-option ours gitcode/d0
-        git push gitcode HEAD:d0
+        # Fetch changes from GitCode main branch
+        git fetch gitcode main
+
+        git push --force gitcode main
         
     - name: List all non-JSON files and folders
       run: |
