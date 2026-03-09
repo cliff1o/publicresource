@@ -1,0 +1,14 @@
+// overview description file for zm_G1_city.bsp
+
+global 
+{
+	ZOOM	1.06
+        ORIGIN	-168.50	   -709.00    -105.00
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/zm_G1_city.tga"
+	HEIGHT	-105.00
+}
