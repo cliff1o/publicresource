@@ -1,1 +1,4 @@
 *.ztmp
+/models/zheroclassic
+/sound/zheroclassic
+/sprites/zheroclassic
