@@ -1,0 +1,5 @@
+4
+weapon		640	sprites/640hud241	0	0	170	45
+weapon_s	640	sprites/640hud241	0	45	170	45
+ammo		640	sprites/640hud241	1	231	24	24
+ammo2		640	sprites/640hud224	49	231	24	24
