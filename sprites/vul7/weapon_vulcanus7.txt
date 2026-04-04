@@ -1,0 +1,4 @@
+3
+weapon			640 vul7/640hud129	0	90	170	45
+weapon_s		640 vul7/640hud129	0	135	170	45
+ammo			640 vul7/640hud7	72	72	24	24
